@@ -1,0 +1,12 @@
+{
+  "name": "navigationtestapp",
+  "displayName": "navigationtestapp",
+  "expo": {
+    "name": "navigationtestapp",
+    "slug": "navigationtestapp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
