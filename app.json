@@ -1,12 +1,29 @@
 {
-  "name": "navigationtestapp",
-  "displayName": "navigationtestapp",
+  "name": "ComicsBook",
+  "displayName": "ComicsBook",
   "expo": {
-    "name": "navigationtestapp",
-    "slug": "navigationtestapp",
+    "name": "ComicsBook",
+    "slug": "ComicsBook",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nathu.TechVlog"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#FFFFFF"
+      },
+      "useNextNotificationsApi": true,
+      "googleServicesFile": "./gglserve.json",
+      "package": "com.nathu.TechVlog"
+    },
+    "notification": {
+      "color": "#311b92",
+      "androidMode": "default",
+      "androidCollapsedTitle": "ComicsBook"
+    }
   }
 }
