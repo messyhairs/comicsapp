@@ -42,7 +42,7 @@ const homeScreenStack = ({ navigation }) => {
                 name="HomeScreen"
                 component={HomeScreen}
                 options={{
-                    title: 'All Comics', //Set Header Title
+                    title: 'All Blog', //Set Header Title
                     headerLeft: () => (
                         <NavigationDrawerHeader navigationProps={navigation} />
                     ),
@@ -106,7 +106,7 @@ const storycreateScreenStack = ({ navigation }) => {
                 name="CreateStory"
                 component={Storycreatescreen}
                 options={{
-                    title: 'write your comics', //Set Header Title
+                    title: 'write your Blog', //Set Header Title
                 }}
             />
         </Stack.Navigator>
@@ -134,7 +134,7 @@ const viewstoryScreenStack = ({ navigation }) => {
                 name="Viewstory"
                 component={Viewstory}
                 options={{
-                    title: 'Your Comics', //Set Header Title
+                    title: 'Your Blog', //Set Header Title
                 }}
             />
         </Stack.Navigator>
@@ -156,23 +156,23 @@ const DrawerNavigatorRoutes = (props) => {
             drawerContent={CustomSidebarMenu}>
             <Drawer.Screen
                 name="homeScreenStack"
-                options={{ drawerLabel: 'All Comics' }}
+                options={{ drawerLabel: 'All Blog' }}
                 component={homeScreenStack}
             />
             <Drawer.Screen
                 name="settingScreenStack"
-                options={{ drawerLabel: 'About Comics app' }}
+                options={{ drawerLabel: 'About Blog app' }}
                 component={settingScreenStack}
             />
             <Drawer.Screen
                 name="CreateStory"
-                options={{ drawerLabel: 'Create Comics' }}
+                options={{ drawerLabel: 'Create Blog' }}
                 component={storycreateScreenStack}
             />
 
             <Drawer.Screen
                 name="viewstoryScreenStack"
-                options={{ drawerLabel: 'Your Comics' }}
+                options={{ drawerLabel: 'Your Blog' }}
                 component={viewstoryScreenStack}
             />
             {/* <Drawer.Screen

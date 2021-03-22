@@ -98,7 +98,7 @@ export default class Viewstory extends Component {
         // }
         this.props.navigation.navigate(
             // 'EditstoryScreenStack',
-            'Edit your Comics'
+            'Edit your Blog'
             // { story: stories },
         );
         // console.log(e.target.value);
@@ -130,7 +130,7 @@ export default class Viewstory extends Component {
                                 <TouchableOpacity
                                     style={styles.buttonStyle}
                                     activeOpacity={0.5} value={stories.title} onPress={((e) => this.editformstatus(e, stories))}>
-                                    <Text style={styles.buttonTextStyle}>Edit your Comics</Text>
+                                    <Text style={styles.buttonTextStyle}>Edit your Blog</Text>
                                 </TouchableOpacity>
                                 {/* <Text value={stories.title} onPress={((e) => this.editformstatus(e, stories))}>Edit</Text> */}
                                 {/* </View> */}

@@ -1,9 +1,9 @@
 {
-  "name": "ComicsBook",
-  "displayName": "ComicsBook",
+  "name": "Blog",
+  "displayName": "Blog",
   "expo": {
-    "name": "ComicsBook",
-    "slug": "ComicsBook",
+    "name": "Blog",
+    "slug": "Blog",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
@@ -23,7 +23,7 @@
     "notification": {
       "color": "#311b92",
       "androidMode": "default",
-      "androidCollapsedTitle": "ComicsBook"
+      "androidCollapsedTitle": "Blog"
     }
   }
 }

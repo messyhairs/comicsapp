@@ -112,7 +112,7 @@ const Storycreatescreen = (props) => {
                             if (responseJson.message === 'done') {
                                 // setIsRegistraionSuccess(true);
                                 if (Platform.OS === 'android') {
-                                    ToastAndroid.show("your comics book created succesfully!", ToastAndroid.SHORT);
+                                    ToastAndroid.show("your Blog book created succesfully!", ToastAndroid.SHORT);
                                 }
                                 setTimeout(() => {
                                     // window.location.reload('homeScreenStack')
@@ -268,7 +268,7 @@ const Storycreatescreen = (props) => {
                     style={styles.inputStyle}
                     onChangeText={(title) => settitle(title)}
                     underlineColorAndroid="#f000"
-                    placeholder="Comics Title"
+                    placeholder="Blog Title"
                     placeholderTextColor="#8b9cb5"
                     returnKeyType="next"
                 />
@@ -280,7 +280,7 @@ const Storycreatescreen = (props) => {
                     }
                     returnKeyType="next"
                     // maxLength={120}
-                    placeholder='Content of Comics'
+                    placeholder='Content of Blog'
                     placeholderTextColor={'#c7c7c7'}
                     underlineColorAndroid={'transparent'}
                 />

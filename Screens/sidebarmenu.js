@@ -51,11 +51,11 @@ const CustomSidebarMenu = (props) => {
                 <View style={stylesSidebar.profileHeaderPicCircle}>
                     <Text style={{ fontSize: 25, color: '#307ecc' }}>
                         {/* {response} */}
-                        {'Comics Book'.charAt(0)}
+                        {'Blog Book'.charAt(0)}
                     </Text>
                 </View>
                 <Text style={stylesSidebar.profileHeaderText}>
-                    Comics world
+                    Blog world
         </Text>
             </View>
             <View style={stylesSidebar.profileHeaderLine} />

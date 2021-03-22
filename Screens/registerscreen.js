@@ -198,8 +198,8 @@ const RegisterScreen = (props) => {
                         Notifications.scheduleNotificationAsync({
                             content: {
                                 // title: responseJson.message,
-                                title: 'Hello' + ' ' + responseJson.result.username + ' ' + 'welcom to Comics world',
-                                body: 'Comics World',
+                                title: 'Hello' + ' ' + responseJson.result.username + ' ' + 'welcom to Blog world',
+                                body: 'Blog World',
                                 // data: { data: 'goes here' },
                                 // data: 'Hello' + ' ' + responseJson.result.username + ' ' + 'welcom to TechVlog'
                             },
@@ -355,7 +355,7 @@ const RegisterScreen = (props) => {
                                 setnoofex(noofex)
                             }
                             underlineColorAndroid="#f000"
-                            placeholder="year of experience in comics written"
+                            placeholder="year of experience in Blog written"
                             placeholderTextColor="#8b9cb5"
                             autoCapitalize="sentences"
                             keyboardType="numeric"

@@ -96,10 +96,10 @@ export default class EditScreen extends React.Component {
                     if (responseJson.messgae === 'update') {
                         // AsyncStorage.removeItem('currentstory');
                         if (Platform.OS === 'android') {
-                            ToastAndroid.show("your comics updated succesfully!", ToastAndroid.SHORT);
+                            ToastAndroid.show("your Blog updated succesfully!", ToastAndroid.SHORT);
                         }
                         // if (Platform.OS === 'ios') {
-                        //     AlertIOS.alert('your comics updated succesfully');
+                        //     AlertIOS.alert('your Blog updated succesfully');
                         //     // ToastAndroid.show("your story updated succesfully!", ToastAndroid.SHORT);
                         // }
                         AsyncStorage.removeItem('currentstory');
@@ -151,7 +151,7 @@ export default class EditScreen extends React.Component {
                 .then((responseJson) => {
                     console.log(responseJson)
                     if (Platform.OS === 'android') {
-                        ToastAndroid.show("your comics deleted succesfully!", ToastAndroid.SHORT);
+                        ToastAndroid.show("your Blog deleted succesfully!", ToastAndroid.SHORT);
                         // ToastAndroid.show(responseJson.messgae, ToastAndroid.SHORT);
                     }
                     // if (Platform.OS === 'ios') {
@@ -204,14 +204,14 @@ export default class EditScreen extends React.Component {
                     <KeyboardAvoidingView enabled>
                         <View style={styles.mainBody}>
                             <View>
-                                <Text style={styles.storytitle}>Comics Title</Text>
+                                <Text style={styles.storytitle}>Blog Title</Text>
                                 <TextInput style={styles.titleanswer}
                                     defaultValue={this.state.getcurrentstory.title}
                                     onChangeText={title => this.setState({ title })}
                                 />
                             </View>
                             <View>
-                                <Text style={styles.contenthead}>Content of Comics</Text>
+                                <Text style={styles.contenthead}>Content of Blog</Text>
                                 <Textarea
                                     containerStyle={styles.textareaContainer}
                                     style={styles.textarea}

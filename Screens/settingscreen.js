@@ -5,12 +5,12 @@ const SettingsScreen = () => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={styles.storycontentbottomview}>
-                <Text> Hello Users we really happy to see you in comics book world. This app is only
-                for Comics book writer who have enthusiasim in Comics and story creating.Comics world is a
-                excellent platform for writer who have knowledge in cartoon and Comics.
+                <Text> Hello Users we really happy to see you in Blog book world. This app is only
+                for Blog book writer who have enthusiasim in Blog and story creating.Blog world is a
+                excellent platform for writer who have knowledge in cartoon and Blog.
                </Text>
                 <Text style={styles.textcontent}> What our app platform will do? </Text>
-                   <Text>If producer Team like your comics.We can provide a set of producers,Flim makers to make your story or comics into
+                   <Text>If producer Team like your Blog.We can provide a set of producers,Flim makers to make your story or Blog into
                     the screen.
                 </Text>
             </View>
