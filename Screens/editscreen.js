@@ -98,10 +98,10 @@ export default class EditScreen extends React.Component {
                         if (Platform.OS === 'android') {
                             ToastAndroid.show("your comics updated succesfully!", ToastAndroid.SHORT);
                         }
-                        if (Platform.OS === 'ios') {
-                            AlertIOS.alert('your comics updated succesfully');
-                            // ToastAndroid.show("your story updated succesfully!", ToastAndroid.SHORT);
-                        }
+                        // if (Platform.OS === 'ios') {
+                        //     AlertIOS.alert('your comics updated succesfully');
+                        //     // ToastAndroid.show("your story updated succesfully!", ToastAndroid.SHORT);
+                        // }
                         AsyncStorage.removeItem('currentstory');
                         setTimeout(() => {
                             // window.location.reload('homeScreenStack')
@@ -154,10 +154,10 @@ export default class EditScreen extends React.Component {
                         ToastAndroid.show("your comics deleted succesfully!", ToastAndroid.SHORT);
                         // ToastAndroid.show(responseJson.messgae, ToastAndroid.SHORT);
                     }
-                    if (Platform.OS === 'ios') {
-                        AlertIOS.alert(responseJson.messgae);
-                        // ToastAndroid.show("your story updated succesfully!", ToastAndroid.SHORT);
-                    }
+                    // if (Platform.OS === 'ios') {
+                    //     AlertIOS.alert(responseJson.messgae);
+                    //     // ToastAndroid.show("your story updated succesfully!", ToastAndroid.SHORT);
+                    // }
                     AsyncStorage.removeItem('currentstory');
                     setTimeout(() => {
                         // window.location.reload('homeScreenStack')

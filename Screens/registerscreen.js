@@ -50,25 +50,18 @@ const RegisterScreen = (props) => {
     const ageInputRef = createRef();
     const addressInputRef = createRef();
     const passwordInputRef = createRef();
-    const [expoPushToken, setExpoPushToken] = useState('');
+    // const [expoPushToken, setExpoPushToken] = useState('');
     const [notification, setNotification] = useState(false);
     const notificationListener = useRef();
     const responseListener = useRef();
-    var testtoken;
+    // var testtoken;
 
     useEffect(() => {
-        // alert('hello')
-        getcurrentstories();
         registerForPushNotificationsAsync().then(token => {
-            setExpoPushToken(token)
+            // setExpoPushToken(token)
             console.log('********', token)
-            // AsyncStorage.setItem('expotoken', token);
-            // alert(token)
-            // setExpoPushToken = token;
-            // testtoken = token;
         }
         );
-
         notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
             setNotification(notification);
         });
@@ -107,10 +100,6 @@ const RegisterScreen = (props) => {
                 return;
             }
             token = (await Notifications.getExpoPushTokenAsync()).data;
-            // console.log(token);
-            // console.log(expoPushToken)
-            // alert(token);
-            AsyncStorage.setItem('expotoken', token);
         } else {
             alert('Must use physical device for Push Notifications');
         }
@@ -127,19 +116,8 @@ const RegisterScreen = (props) => {
         return token;
     }
 
-    const getcurrentstories = async () => {
-        try {
-            let extoken = await AsyncStorage.getItem('expotoken');
-            testtoken = extoken;
-            // alert('************' ,testtoken)
-          
-        } catch (e) {
-            // error reading value
-            console.log(e);
-        }
-    }
-    const handleSubmitButton = async () => {
-        // alert(expoPushToken)
+
+    const handleSubmitButton = () => {
         setErrortext('');
         if (!username) {
             alert('Please fill Name');
@@ -185,12 +163,9 @@ const RegisterScreen = (props) => {
         //Show Loader
         setLoading(true);
         // const url = 'http://172.26.240.1:8000/api/createaccount';
-        // http://192.168.1.16:8000/
         // const localurl = 'http://192.168.1.7:8000/api/createaccount';
         const localurl = 'https://tranquil-dusk-36378.herokuapp.com/api/createaccount'
         // const localurl = 'http://localhost:8000/api/createaccount';
-        try {
-            // let extoken = await AsyncStorage.getItem('expotoken');
             fetch(localurl, {
                 method: 'POST',
                 headers: {
@@ -207,14 +182,13 @@ const RegisterScreen = (props) => {
                     noofex: noofex,
                     contactnumber: contactnumber,
                     tagline: tagline,
-                    expoPushToken: testtoken
+                    // expoPushToken: testtoken
                 })
             })
                 .then((response) => response.json())
                 .then((responseJson) => {
                     //Hide Loader
                     setLoading(false);
-                    // alert(responseJson)
                     if (responseJson.message === 'success') {
                         setIsRegistraionSuccess(true);
                         console.log(responseJson.result);
@@ -237,10 +211,7 @@ const RegisterScreen = (props) => {
                     }
                     else {
                         // setErrortext(responseJson.msg);
-                        // alert(responseJson.toast)
-                        // ToastAndroid.show(responseJson.toast, ToastAndroid.SHORT);
                         ToastAndroid.show(responseJson.toast, ToastAndroid.SHORT);
-                        ToastAndroid.show('**********', ToastAndroid.SHORT);
 
                     }
                 })
@@ -250,11 +221,6 @@ const RegisterScreen = (props) => {
                     console.error(error);
                     ToastAndroid.show(error, ToastAndroid.SHORT);
                 });
-        } catch (e) {
-            // error reading value
-            console.log(e);
-            // alert(e)
-        }
 
     };
     if (isRegistraionSuccess) {
@@ -389,7 +355,7 @@ const RegisterScreen = (props) => {
                                 setnoofex(noofex)
                             }
                             underlineColorAndroid="#f000"
-                            placeholder="year of experience"
+                            placeholder="year of experience in comics written"
                             placeholderTextColor="#8b9cb5"
                             autoCapitalize="sentences"
                             keyboardType="numeric"
@@ -404,7 +370,7 @@ const RegisterScreen = (props) => {
                                 setrole(role)
                             }
                             underlineColorAndroid="#f000"
-                            placeholder="eg: Front end developer"
+                            placeholder="eg: Marvel story creator"
                             placeholderTextColor="#8b9cb5"
                             autoCapitalize="sentences"
                             returnKeyType="next"
