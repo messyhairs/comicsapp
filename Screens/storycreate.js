@@ -17,6 +17,8 @@ import Axios from 'axios';
 import Textarea from 'react-native-textarea';
 import SplashScreen from './splashscreen';
 import { StatusBar } from 'react-native';
+import SendSMS from 'react-native-sms';
+import * as Notifications from 'expo-notifications';
 const goto = async () => {
     location.reload('homeScreenStack')
 }
@@ -25,6 +27,11 @@ const Storycreatescreen = (props) => {
     const [useremail, setuseremail] = useState('');
     const [title, settitle] = useState('');
     const [storypara, setstorypara] = useState('');
+    // const [mobileNumber, setMobileNumber] = useState('');
+    // const [bodySMS, setBodySMS] = useState(
+    //     'Please follow https://aboutreact.com',
+    // );
+
     // const [password, setpassword] = useState('');
     // const [loading, setLoading] = useState(false);
     const [errortext, setErrortext] = useState('');
@@ -66,6 +73,8 @@ const Storycreatescreen = (props) => {
             let users = await AsyncStorage.getItem('userdatas');
             const userdatas = JSON.parse(users);
             console.log(userdatas);
+            const token = (await Notifications.getExpoPushTokenAsync()).data;
+            console.log('************* create',token);
             // this.setState({ data: userdatas });
             const gettoken = userdatas.token;
             const getuserid = userdatas.userid;
@@ -110,9 +119,43 @@ const Storycreatescreen = (props) => {
                             // setLoading(false);
                             console.log(responseJson);
                             if (responseJson.message === 'done') {
+                                Notifications.scheduleNotificationAsync({
+                                    content: {
+                                        // title: responseJson.message,
+                                        title: 'Hello' + ' ' +  'you created new stories',
+                                        body: 'Blog World',
+                                        // data: { data: 'goes here' },
+                                        // data: 'Hello' + ' ' + responseJson.result.username + ' ' + 'welcom to TechVlog'
+                                    },
+                                    trigger: { seconds: 1 },
+                                });
                                 // setIsRegistraionSuccess(true);
                                 if (Platform.OS === 'android') {
                                     ToastAndroid.show("your Blog book created succesfully!", ToastAndroid.SHORT);
+                                    // if (mobileNumber.length != 10) {
+                                    //     alert('Please insert correct contact number');
+                                    //     return;
+                                    // }
+
+                                    // SendSMS.send(
+                                    //     {
+                                    //         body: 'HELLO TEST',
+                                    //         // Recipients Number
+                                    //         recipients: [8754388419],
+                                    //         // An array of types 
+                                    //         // "completed" response when using android
+                                    //         successTypes: ['sent', 'queued'],
+                                    //     },
+                                    //     (completed, cancelled, error) => {
+                                    //         if (completed) {
+                                    //             alert('SMS Sent Completed');
+                                    //         } else if (cancelled) {
+                                    //             alert('SMS Sent Cancelled');
+                                    //         } else if (error) {
+                                    //             alert('Some error occured');
+                                    //         }
+                                    //     },
+                                    // );
                                 }
                                 setTimeout(() => {
                                     // window.location.reload('homeScreenStack')
@@ -261,35 +304,35 @@ const Storycreatescreen = (props) => {
                 justifyContent: "center",
                 alignItems: "center"
             }}>
-                                <StatusBar hidden />
+            <StatusBar hidden />
             <ScrollView keyboardShouldPersistTaps="handled">
-            <KeyboardAvoidingView enabled>
-                <TextInput
-                    style={styles.inputStyle}
-                    onChangeText={(title) => settitle(title)}
-                    underlineColorAndroid="#f000"
-                    placeholder="Blog Title"
-                    placeholderTextColor="#8b9cb5"
-                    returnKeyType="next"
-                />
-                <Textarea
-                    containerStyle={styles.textareaContainer}
-                    style={styles.textarea}
-                    onChangeText={(storypara) =>
-                        setstorypara(storypara)
-                    }
-                    returnKeyType="next"
-                    // maxLength={120}
-                    placeholder='Content of Blog'
-                    placeholderTextColor={'#c7c7c7'}
-                    underlineColorAndroid={'transparent'}
-                />
-                <TouchableOpacity
-                    style={styles.buttonStyle}
-                    activeOpacity={0.5}
-                    onPress={createstory}>
-                    <Text style={styles.buttonTextStyle}>FINISH</Text>
-                </TouchableOpacity>
+                <KeyboardAvoidingView enabled>
+                    <TextInput
+                        style={styles.inputStyle}
+                        onChangeText={(title) => settitle(title)}
+                        underlineColorAndroid="#f000"
+                        placeholder="Blog Title"
+                        placeholderTextColor="#8b9cb5"
+                        returnKeyType="next"
+                    />
+                    <Textarea
+                        containerStyle={styles.textareaContainer}
+                        style={styles.textarea}
+                        onChangeText={(storypara) =>
+                            setstorypara(storypara)
+                        }
+                        returnKeyType="next"
+                        // maxLength={120}
+                        placeholder='Content of Blog'
+                        placeholderTextColor={'#c7c7c7'}
+                        underlineColorAndroid={'transparent'}
+                    />
+                    <TouchableOpacity
+                        style={styles.buttonStyle}
+                        activeOpacity={0.5}
+                        onPress={createstory}>
+                        <Text style={styles.buttonTextStyle}>FINISH</Text>
+                    </TouchableOpacity>
                 </KeyboardAvoidingView>
                 {/* <Button style={styles.buttonStyle} title="CreateStory" onPress={createstory} /> */}
             </ScrollView>

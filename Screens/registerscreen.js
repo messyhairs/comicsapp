@@ -18,6 +18,7 @@ import * as Notifications from 'expo-notifications';
 import Constants from 'expo-constants';
 import Loader from './loader';
 import AsyncStorage from '@react-native-community/async-storage';
+import Icon from "react-native-vector-icons/MaterialIcons";
 Notifications.setNotificationHandler({
     handleNotification: async () => ({
         shouldShowAlert: true,

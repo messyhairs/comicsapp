@@ -5,9 +5,8 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Axios from 'axios';
-import { Card, ListItem, Button, Icon } from 'react-native-elements';
+import { Card, ListItem, Button } from 'react-native-elements';
 import Textarea from 'react-native-textarea';
-
 export default class EditScreen extends React.Component {
 
     constructor(props) {
@@ -220,14 +219,13 @@ export default class EditScreen extends React.Component {
                                 />
                                 <View style={{ flex: 1, flexDirection: 'row', marginRight: 'auto', marginLeft: 'auto' }}>
                                     <View style={{ width: 150, height: 50 }}>
-                                        <Button title="Delete your book" onPress={this.deletestories} />
+                                        <Button title="Delete" onPress={this.deletestories} />
                                         {/* <Text onPress={this.deletestories}>delete</Text> */}
                                     </View>
                                     <View style={{ width: 150, height: 50, marginLeft: 20 }}>
-                                        <Button title="Update your book" onPress={this.updatestories} />
+                                        <Button title="Update" onPress={this.updatestories} />
                                         {/* <Text onPress={this.updatestories}>update</Text> */}
                                     </View>
-
                                 </View>
                             </View>
                         </View>

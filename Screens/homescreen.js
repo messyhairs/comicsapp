@@ -53,7 +53,7 @@ export default class HomeScreen extends Component {
                 },
 
             };
-            this.setState({isLoading : true})
+            this.setState({ isLoading: true })
             Axios.get(localurl + getuserid, config)
                 .then(response => {
                     this.setState({ profiles: response.data.profile });
@@ -79,7 +79,7 @@ export default class HomeScreen extends Component {
                         this.setState({
                             userstory: [...this.state.userstory, obj]
                         });
-                        this.setState({isLoading : false})
+                        this.setState({ isLoading: false })
                         console.log(this.state.userstory);
                         // this.setState({ userstory: datas });
                     })
@@ -100,6 +100,11 @@ export default class HomeScreen extends Component {
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <ScrollView>
+                    {
+                        this.isLoading && <View style={{ position: 'absolute', right: 0, left: 0 }}>
+                            <ActivityIndicator size="large" color="red" />
+                        </View>
+                    }
                     <View style={styles.mainBody}>
                         {this.state.userstory.map((stories, index) => (
                             <Card key={index}>
